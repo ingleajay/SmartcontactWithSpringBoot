@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="/authuser/base::layout(~{::section})">
+<!-- ======= dashboard Details Section ======= -->
+<section id="portfolio-details" class="portfolio-details">
+	<div class="container-fluid">
+		<div class="row gy-4">
+			<div th:replace="authuser/sidebar::side"></div>
+			<div class="col-lg-10" th:if=${contact}>
+				
+				<section id="contact" class="contact section-bg">
+					<div th:if="${session.message}"
+						th:classappend="${session.message.type}" class="alert"
+						role="alert">
+						<p th:text="${session.message.content}"></p>
+						<th:block th:text="${#session.removeAttribute('message')}"></th:block>
+					</div>
+					<div class="container" data-aos="fade-up">
+
+						<div class="section-title">
+							<h2>View Contact Details</h2>
+						</div>
+
+						<div class="row ">
+							<div class="col-lg-12 mt-4 mt-lg-0 text-center ">
+								<div class="card">
+									<div class="card-body">
+									<img th:src="@{'/assets/img/'+${contact.cimageurl}}" alt="profile photo" class="my_profile rounded-circle" style="width:200px; height:200px;">
+										<div class="card mt-2">
+									<div class="card-body">
+									<div class="table-responsive">
+										<table class="table">
+										  <thead>
+										    <tr>
+										      <th scope="col">Id</th>
+										      <th scope="col" th:text="${contact.cid}"></th>
+										    </tr>
+										  </thead>
+										  <tbody>
+										    <tr>
+										      <th scope="row">Email</th>
+										      <td th:text="${contact.cemail}"></td>
+										    </tr>
+										    
+										    <tr>
+										      <th scope="row">Name</th>
+										      <td th:text="${contact.cname}"></td>
+										    </tr>
+										    
+										     <tr>
+										      <th scope="row">Description</th>
+										      <td th:text="${contact.cdesc}"></td>
+										    </tr>
+										    
+										    
+										     <tr>
+										      <th scope="row">Nick Name</th>
+										      <td th:text="${contact.nickname}"></td>
+										    </tr>
+										    
+										    <tr>
+										      <th scope="row">Phone No</th>
+										      <td th:text="${contact.phone}"></td>
+										    </tr>
+										    
+										     <tr>
+										      <th scope="row">Work</th>
+										      <td th:text="${contact.work}"></td>
+										    </tr>
+										    
+										   
+										  </tbody>
+										</table>
+										</div>
+										</div>
+										</div>
+										<div class="container mt-4">
+										
+										<form th:action="@{'/user/edit/' + ${contact.cid}}" method="post">
+									      <button  type="submit"  class="btn btn-warning ">Update</button>
+									   </form> 
+									   <a href="#" th:onclick = "|deletecontact(${contact.cid})|"  class="btn btn-danger mt-2">Delete</a>
+										
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+				</section>
+				<!-- End Contact Section -->
+
+			</div>
+			<div class="col-lg-10" th:unless=${contact}>
+
+			<div class="alert alert-danger" role="alert">
+					 Sorry, You don't have permission to view this contact !
+			</div>
+
+			</div>
+</section>
+</div>
+</div>
+</div>
+</section>
+</html>

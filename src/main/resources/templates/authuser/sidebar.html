@@ -1,0 +1,21 @@
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<div class="col-lg-2" th:fragment="side">
+            <div class="portfolio-info">
+              <h3>List of Actions</h3>
+              <ul>
+                <li><strong><a href="/user/index"><i class="fas fa-home"></i> Home</a></strong></li>
+                <li><strong><a href="/user/showcontacts/0"><i class="fas fa-id-card-alt"></i> View Contact</a></strong></li>
+                <li><strong><a th:href="@{/user/addcontact}"><i class="fas fa-pencil-alt"></i> Add Contact</a></strong></li>
+                <li><strong><a href="/user/myprofile"><i class="fas fa-user-circle"></i> My profile</a></strong></li>
+                <li><strong><a href="/user/settings"><i class="fas fa-cogs"></i> Setting</a></strong></li>
+                <li><strong><a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></strong></li>
+              </ul>
+            </div>
+           <!--  <div class="portfolio-description">
+              <h2>This is an example of portfolio detail</h2>
+              <p>
+                Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
+              </p>
+            </div> -->
+</div>
+</html>

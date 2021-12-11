@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="/authuser/base::layout(~{::section})">
+<!-- ======= dashboard Details Section ======= -->
+<section id="portfolio-details" class="portfolio-details">
+	<div class="container-fluid">
+		<div class="row gy-4">
+			<div th:replace="authuser/sidebar::side"></div>
+			<div class="col-lg-10" th:fragment="add_contact">
+			<div th:if="${session.message}" th:classappend="${session.message.type}" class="alert" role="alert">
+				          <p th:text="${session.message.content}"></p>
+				          <th:block th:text="${#session.removeAttribute('message')}"></th:block>
+                   </div>
+				<div class="card ">
+				
+  <div class="card-header text-white bg-secondary">
+    My Dashboard
+  </div>
+  <div class="card-body text-center">
+  	<img src="/assets/img/contact-banner.png" alt="contact banner" class="img-fluid">
+    <h3 class="card-title mt-3 fw-bold fst-italic">Save your contacts on cloud..</h3>
+   
+    <a href="/user/addcontact" class="btn btn-primary">Add your contact</a>
+    <a href="/user/showcontacts/0" class="btn btn-success">View your contact</a>
+  </div>
+  
+</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End Portfolio Details Section -->
+</html>

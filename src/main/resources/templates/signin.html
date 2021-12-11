@@ -1,0 +1,79 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="base::layout(~{::main})">
+<main id="main">
+	<!-- ======= Breadcrumbs Section ======= -->
+	<section class="breadcrumbs">
+		<div class="container">
+			<div class="d-flex justify-content-between align-items-center">
+				<h2>Login</h2>
+				<ol>
+					<li><a th:href="@{/home}">Home</a></li>
+					<li>Login</li>
+				</ol>
+			</div>
+		</div>
+	</section>
+	<!-- End Breadcrumbs Section -->
+
+	<section class="inner-page">
+		<div class="container">
+			<section id="contact" class="contact section-bg">
+				<div class="container" data-aos="fade-up">
+					<div class="section-title">
+						<h2>Login</h2>
+						<p>Smart contact provide you secure login.</p>
+					</div>
+
+					<div class="row ">
+					<div class="col-lg-12 mt-4 mt-lg-0 ">
+						<div th:if="${param.error}" class="alert alert-danger">
+								Invalid username and password</div>
+							<div th:if="${param.logout}" class="alert alert-success">
+								You have been logout.</div>
+						<div th:if="${param.change}" class="alert alert-success">
+								<p th:text="${param.change}"></p></div>
+						<form th:action="@{/signin}" method="post" role="form"
+							class="php-email-form w-100" data-aos="fade-up">
+							
+							<div class="row">
+
+								<div class="col-md-12 form-group">
+									<input type="text" name="username" class="form-control"
+										id="username" placeholder="Enter your email" required>
+								</div>
+
+							</div>
+							<div class="form-group mt-3">
+								<input type="password" class="form-control" name="password"
+									id="password" placeholder="Enter your password" required>
+							</div>
+
+
+
+							<div class="my-3">
+								<div class="loading">Loading</div>
+								<div class="error-message"></div>
+
+							</div>
+							<div class="text-center">
+								<button type="submit">Login</button>
+							</div>
+						</form>
+						<div class="section-title">
+							<p>
+								Not have Account ? <a th:href="@{/register}">Register Here </a>
+							</p>
+						</div>
+					</div>
+
+				</div>
+		</div>
+	</section>
+	</div>
+	</section>
+
+
+</main>
+<!-- End #main -->
+</html>
+
